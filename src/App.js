@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Greeting from './components/Greeting';
+import CurrentTime from './components/CurrentTime';
+import EventCard from './components/EventCard';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>text</h1>
+      <p>texting</p>
+
+      <Greeting />
+      <CurrentTime />
+      <div>  <EventCard title="Концерт группы Крутая группа'" date="22 октября 2024, 19:00" location="Москва, Крокус Сити Холл" />
+        <EventCard title="Выставка 'Мир Динозавров'" date="5 ноября 2024, 10:00" location="Санкт-Петербург, Экспофорум" />
+        <EventCard title="Фестиваль еды 'Вкусная осень'" date="12 ноября 2024, 12:00" location="Нижний Новгород, Парк культуры и отдыха" /></div>
+
     </div>
   );
 }
