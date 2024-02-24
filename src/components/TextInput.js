@@ -2,21 +2,21 @@
 import { useState } from "react";
 
 export default function TextInput() {
-const [inputText, setinputText] = useState(null);
+    const [inputText, setinputText] = useState(null);
 
-return (
-<>
-<label htmlFor="input">Введите текст: </label>
-<input
-onChange={(event) => setinputText(event.target.value)}
-type="text"
-id="input"
-maxLength={10}
-></input>
-{!inputText && <p>Пока ничего не введено</p>}
-{inputText && <p>{inputText}</p>}
-</>
-);
+    return (
+        <>
+            <label htmlFor="input">Введите текст: </label>
+            <input
+                onChange={(event) => setinputText(event.target.value)}
+                type="text"
+                id="input"
+                maxLength={10}
+            ></input>
+            {!inputText && <p>Пока ничего не введено</p>}
+            {inputText && <p>{inputText}</p>}
+        </>
+    );
 }
 
 // import { useEffect, useState } from "react";
