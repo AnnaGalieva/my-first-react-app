@@ -17,9 +17,48 @@ import React from "react";
 import { BrowserRouter, RouterProvider } from 'react-router-dom';
 import ListPage from './components/ListPage';
 import DetailPage from './components/DetailPage';
-import {useState} from 'react';
+import { useState } from 'react';
 import NotFound from './components/NotFound';
+
+import { createContext } from "react";
+// import Header from "./components/Header";
+// import Profile from "./components/Profile";
+// import Footer from "./components/Footer";
+import Counters from './components/counter/Counters';
+// import Loading from "./components/Loading";
+
+export const UserContext = createContext("Guest");
+export const ThemeContext = createContext("light");
+// const withLoadingIndicator = (Component, isLoading) => {
+//   return (props) => {
+//     const newProps = {
+//       ...props,
+//       isLoading,
+//     };
+//     return <Component {...newProps} />;
+//   };
+// };
 function App() {
+  // const [isLoading, setIsLoading] = useState(true);
+  // const NewLoading = withLoadingIndicator(Loading, isLoading);
+
+  // setTimeout(() => {
+  //   setIsLoading((prev) => !prev);
+  // }, 3000);
+
+  const [theme, setTheme] = useState("light");
+  const [userName, setUserName] = useState("Guest");
+
+  function changeUserName(e) {
+    let newUserName = e.target.closest("div").querySelector("input").value;
+    setUserName(newUserName);
+    newUserName = "";
+  }
+
+  function toggleTheme() {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  }
+
   const [products, setProducts] = useState([
     { name: "pr1", text: "pr text" },
     { name: "pr2", text: "pr text" },
@@ -49,7 +88,23 @@ function App() {
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+    <Counters />
+      {/* <NewLoading /> */}
+      {/* <ThemeContext.Provider value={theme}>
+        <UserContext.Provider value={userName}>
+          <Header />
+          <div>
+            <input />
+            <button onClick={changeUserName}>Edit user name</button>
+          </div>
+          <Profile />
+          <Footer />
+          <div>
+            <button onClick={toggleTheme}>Change theme</button>
+          </div>
+        </UserContext.Provider>
+      </ThemeContext.Provider> */}
+      {/* <RouterProvider router={router} /> */}
       <h1>Изучаем React!</h1>
       <List listItems={liElements} renderItem={renderItem} />
       <div className="App">
@@ -93,6 +148,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
